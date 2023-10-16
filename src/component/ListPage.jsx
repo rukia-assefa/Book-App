@@ -16,7 +16,6 @@ import {
   StyledContent,
   StyledDelete,
   StyledEdit,
-  // StyledBookGrid
   RatingContainer
 } from './Styled/StyledComponet';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
@@ -93,8 +92,6 @@ const ListPage = () => {
           )}
           {bookData.length > 0 ? (
             <>
-           {/* <StyledBookGrid> */}
-
               {bookData.map((book) => (
                 <div key={book._id}>
                   <StyledBookListItem
@@ -123,14 +120,12 @@ const ListPage = () => {
                             handleDeleteClick(book._id);
                           }
                         }}
-                        // style={{ marginTop: '16px', marginLeft: 'auto', display:'flex',fontSize:'10px' }}
                         sx={{ display: 'flex', minWidth: '100px', marginLeft: 'auto' }}
 
                       >
                         Delete
                       </StyledDelete>    
                {/* Add to Favorites / Remove from Favorites buttons */}
-               {/* <div style={{ display: 'flex' }}> */}
 
                 {favorites.includes(book._id) ? (
                   <Button
@@ -140,7 +135,6 @@ const ListPage = () => {
                       e.stopPropagation(); // Prevent item click event
                       removeFromFavorites(book._id); // Remove from favorites
                     }}
-                    // sx={{ display: 'flex', minWidth: '100px', marginLeft: "50%" }}
                     style={{ width: '100px' }} // Set a fixed width
 
                   >
@@ -174,7 +168,6 @@ const ListPage = () => {
                 </div>
                 
               ))}
-               {/* </StyledBookGrid> */}
 
               </>
           ) : (
@@ -183,8 +176,6 @@ const ListPage = () => {
             </Typography>
           )}
            </Paper>
-          </Container>
-          <Container>
                 <Button component={Link} to={`/detail`} variant="contained" color="primary" mt={2} 
                         style={{marginTop: '16px',alignContent:"center",padding:"16px"}} >
                             Create New Book

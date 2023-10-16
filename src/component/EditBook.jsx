@@ -77,7 +77,6 @@ export default function EditBook() {
   return (
     <Container maxWidth="md">
       <Typography variant="h4" component="h1" mt={4} mb={2}>
-        {/* {id ? 'Edit Book' : 'Create Book'} */}
       </Typography>
       <StyledPaper elevation={3} style={{ marginTop: '25px' }}>
         <form>

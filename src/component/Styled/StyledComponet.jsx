@@ -94,12 +94,6 @@ export const StyledEdit = styled(Edit)`
   cursor: pointer;
 `;
 
-export const StyledBookGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Adjust the column width as needed
-  gap: 16px; // Adjust the gap between grid items as needed
-  grid-auto-rows: minmax(200px, auto); // Adjust the row height as needed
-`;
 // Create a styled component for the book item container
 export const BookListItem = styled.div`
   display: flex;
