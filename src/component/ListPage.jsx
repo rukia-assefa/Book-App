@@ -89,7 +89,6 @@ const ListPage = () => {
               <StyledSkeleton variant="rounded" width={370} height={60} />
             </>
           )}
-
           {isError && (
             <Alert severity="error">
               <AlertTitle>Error</AlertTitle>
@@ -114,7 +113,6 @@ const ListPage = () => {
                     </StyledContent>
                     {/* edit button */}
                     <div style={{ display: 'flex' }}>
-
                     <Link to={`/detail/${book._id}`}>
                         <StyledEdit/>
                        </Link>
@@ -129,7 +127,6 @@ const ListPage = () => {
                           }
                         }}
                         sx={{ display: 'flex', minWidth: '100px', marginLeft: 'auto' }}
-
                       >
                         Delete
                       </StyledDelete>    
@@ -144,7 +141,6 @@ const ListPage = () => {
                       removeFromFavorites(book._id); // Remove from favorites
                     }}
                     style={{ width: '100px' }} // Set a fixed width
-
                   >
                     {/* Remove from Favorites */}
                     <BookmarkIcon></BookmarkIcon>
@@ -157,7 +153,6 @@ const ListPage = () => {
                       e.stopPropagation(); // Prevent item click event
                       addToFavorites(book._id); // Add to favorites
                     }}
-                    // sx={{ display: 'flex', minWidth: '100px', marginLeft: "50%"}}
                     style={{ width: '100px' }} // Set a fixed width
                   >
                      <BookmarkBorderIcon></BookmarkBorderIcon>
@@ -181,7 +176,6 @@ const ListPage = () => {
                   Load More
                 </Button>
               )}
-
               </>
           ) : (
             <Typography variant="body2" color="textSecondary">
