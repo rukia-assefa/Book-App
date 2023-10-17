@@ -1,6 +1,6 @@
 import React, { useContext, useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, Alert, AlertTitle, Button,Rating,Stack } from '@mui/material';
+import { Paper, Alert, AlertTitle, Button,Rating} from '@mui/material';
 import { BookFinderContext } from '../context';
 import {
   Container,
@@ -24,6 +24,9 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 const ListPage = () => {
     const { bookData,setBookData, isLoading, isError,favorites, fetchBooksData,addToFavorites,removeFromFavorites} = useContext(BookFinderContext);
     const [sortOrder, setSortOrder] = useState('asc'); 
+    const [visibleBooks, setVisibleBooks] = useState(5); // Number of books to initially display
+    const [loadMoreBooks, setLoadMoreBooks] = useState(5); // Number of books to load when clicking "Load More"
+
   // Default sorting order is ascending
   // using use effect fetch the data by calling the fetchbook data comes from context js
   useEffect(() => {
@@ -62,6 +65,9 @@ const ListPage = () => {
     // Update the bookData state with the sorted array
     setBookData(sortedBooks);
   };
+  const handleLoadMore = () => {
+    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + loadMoreBooks);
+  };
   return (
     <>
         <Container maxWidth="md">
@@ -92,7 +98,9 @@ const ListPage = () => {
           )}
           {bookData.length > 0 ? (
             <>
-              {bookData.map((book) => (
+              {/* {bookData.map((book) => ( */}
+              {bookData.slice(0, visibleBooks).map((book) => (
+
                 <div key={book._id}>
                   <StyledBookListItem
                     elevation="4"
@@ -168,6 +176,11 @@ const ListPage = () => {
                 </div>
                 
               ))}
+              {bookData.length > visibleBooks && (
+                <Button variant="contained" color="primary" onClick={handleLoadMore}>
+                  Load More
+                </Button>
+              )}
 
               </>
           ) : (
