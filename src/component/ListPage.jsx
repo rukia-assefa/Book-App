@@ -25,12 +25,14 @@ const ListPage = () => {
     const { bookData,setBookData, isLoading, isError,favorites, fetchBooksData,addToFavorites,removeFromFavorites} = useContext(BookFinderContext);
     const [sortOrder, setSortOrder] = useState('asc'); 
     const [visibleBooks, setVisibleBooks] = useState(5); // Number of books to initially display
+    // eslint-disable-next-line no-unused-vars
     const [loadMoreBooks, setLoadMoreBooks] = useState(5); // Number of books to load when clicking "Load More"
 
   // Default sorting order is ascending
   // using use effect fetch the data by calling the fetchbook data comes from context js
   useEffect(() => {
     fetchBooksData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 // delete book when we click delete
   const handleDeleteClick = async (id) => {
