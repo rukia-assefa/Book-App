@@ -10,7 +10,7 @@ export const BookProvider = (props) => {
 
   const fetchBooksData = () => {
     axios
-      .get("http://localhost:3000/api/books/books")
+      .get("https://blooming-sea-21659-8d11e6370d1b.herokuapp.com/api/books/books")
       .then((response) => {
         setBookData(response?.data);
         setIsLoading(false);

@@ -18,7 +18,7 @@ export default function Login() {
   function handleLogin(event) {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/api/user/login", {
+      .post("https://blooming-sea-21659-8d11e6370d1b.herokuapp.com/api/user/login", {
         username: username,
         password: password,
       })

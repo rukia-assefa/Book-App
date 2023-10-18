@@ -34,7 +34,7 @@ export default function Signup() {
     }
 
     axios
-      .post("http://localhost:3000/api/user/register", {
+      .post("https://blooming-sea-21659-8d11e6370d1b.herokuapp.com/api/user/register", {
         firstName: firstName,
         lastName: lastName,
         email: email,

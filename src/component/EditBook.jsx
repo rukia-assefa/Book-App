@@ -53,7 +53,7 @@ export default function EditBook() {
 
       if (id) {
         // Send a PATCH request to update the book with the provided ID
-        await axios.patch(`http://localhost:3000/api/books/${id}`, updatedBook);
+        await axios.patch(`https://blooming-sea-21659-8d11e6370d1b.herokuapp.com/api/books/${id}`, updatedBook);
         // After saving, navigate back to the book list
         navigate('/list');
       } else {
