@@ -102,23 +102,34 @@ export const BookListItem = styled.div`
 
 // Create a styled component for the rating container
 export const RatingContainer = styled.div`
-  display: flex;
+/* Your default styles */
+display: flex;
+align-items: center;
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 768px) {
+  /* Adjust the styles to make it fit within the container */
+  flex-direction: column; /* Stack components vertically */
   align-items: center;
-  
-  @media (max-width: 768px) {
-    font-size: 0.8rem; // Adjust font size for smaller screens
+
+  p {
+    /* Adjust the styles for the text */
+    margin: 0;
   }
+}
 `;
 
 // Create a styled component for the bookmark container
 export const BookmarkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: auto; // Push the bookmark to the right
-  
-  @media (max-width: 768px) {
-    margin-left: 0; // Reset the margin for bookmark on smaller screens
-  }
+/* Your default styles */
+display: flex;
+align-items: center;
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 768px) {
+  /* Adjust the styles to make it fit within the container */
+  margin-top: 8px; /* Add space at the top */
+}
 `;
 export const Container = styled.div`
   /* Your default styles for larger screens */
@@ -137,3 +148,5 @@ export const Container = styled.div`
     margin: 5px;
   }
 `;
+
+

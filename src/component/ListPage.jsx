@@ -17,6 +17,7 @@ import {
   StyledEdit,
   RatingContainer,
   Container,
+  BookmarkContainer,
 } from './Styled/StyledComponet';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
@@ -133,7 +134,7 @@ const ListPage = () => {
                         Delete
                       </StyledDelete>    
                {/* Add to Favorites / Remove from Favorites buttons */}
-
+               <BookmarkContainer>
                 {favorites.includes(book._id) ? (
                   <Button
                     variant="outlined"
@@ -161,14 +162,14 @@ const ListPage = () => {
                           {/* Add to Favorites */}
                   </Button>
                 )}
+            </BookmarkContainer>
                </div>
                
                   {/* Book rating */}
-                  <RatingContainer style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+                  <RatingContainer>
                     <p style={{ margin: 0, paddingRight: '5px' }}>Rating</p>
-
                     <Rating name="rating" defaultValue={2.5} />
-                  </RatingContainer>
+                    </RatingContainer>
                   </StyledBookListItem>
                 </div>
                 
