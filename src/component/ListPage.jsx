@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { Paper, Alert, AlertTitle, Button,Rating} from '@mui/material';
 import { BookFinderContext } from '../context';
 import {
-  Container,
   Typography,
-
 } from '@mui/material';
+
 import SearchBar from '../SearchBar/SearchBar';
 import axios from 'axios'; 
 import {
@@ -16,7 +15,8 @@ import {
   StyledContent,
   StyledDelete,
   StyledEdit,
-  RatingContainer
+  RatingContainer,
+  Container,
 } from './Styled/StyledComponet';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
@@ -78,7 +78,7 @@ const ListPage = () => {
         </Typography>
         
         <SearchBar  />
-
+       
         <Button variant="contained" color="primary" onClick={handleSortClick} style={{ marginLeft: 'auto' , marginTop: '16px'}} >
           Sort by Title ({sortOrder === 'asc' ? 'A-Z'||'a-z' : 'Z-A'||'z-a'})
         </Button>

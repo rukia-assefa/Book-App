@@ -120,3 +120,20 @@ export const BookmarkContainer = styled.div`
     margin-left: 0; // Reset the margin for bookmark on smaller screens
   }
 `;
+export const Container = styled.div`
+  /* Your default styles for larger screens */
+  font-size: 16px;
+  margin: 20px;
+
+  @media (max-width: 768px) {
+    /* Adjust styles for screens with a maximum width of 768px (typical for phones) */
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  @media (max-width: 480px) {
+    /* Adjust styles for screens with a maximum width of 480px (smaller phones) */
+    font-size: 12px;
+    margin: 5px;
+  }
+`;
