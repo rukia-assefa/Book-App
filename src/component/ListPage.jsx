@@ -2,6 +2,8 @@ import React, { useContext, useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Paper, Alert, AlertTitle, Button,Rating} from '@mui/material';
 import { BookFinderContext } from '../context';
+import { useMediaQuery} from '@mui/material';
+
 import {
   Typography,
 } from '@mui/material';
@@ -9,15 +11,7 @@ import {
 import SearchBar from '../SearchBar/SearchBar';
 import axios from 'axios'; 
 import {
-  StyledBookListItem,
-  StyledSkeleton,
-  StyledImage,
-  StyledContent,
-  StyledDelete,
-  StyledEdit,
-  RatingContainer,
-  Container,
-  BookmarkContainer,
+  StyledBookListItem, StyledSkeleton,StyledImage, StyledContent, StyledDelete,StyledEdit,RatingContainer,Container,BookmarkContainer,
 } from './Styled/StyledComponet';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
@@ -26,8 +20,7 @@ const ListPage = () => {
     const { bookData,setBookData, isLoading, isError,favorites, fetchBooksData,addToFavorites,removeFromFavorites} = useContext(BookFinderContext);
     const [sortOrder, setSortOrder] = useState('asc'); 
     const [visibleBooks, setVisibleBooks] = useState(5); // Number of books to initially display
-    // eslint-disable-next-line no-unused-vars
-    const [loadMoreBooks, setLoadMoreBooks] = useState(5); // Number of books to load when clicking "Load More"
+    const isMobile = useMediaQuery('(max-width:768px)'); // Adjust the media query as needed
 
   // Default sorting order is ascending
   // using use effect fetch the data by calling the fetchbook data comes from context js
@@ -39,7 +32,7 @@ const ListPage = () => {
   const handleDeleteClick = async (id) => {
     try {
       // Send a DELETE request to delete the book by ID
-      await axios.delete(`http://localhost:3000/api/books/${id}`);
+      await axios.delete(`https://blooming-sea-21659-8d11e6370d1b.herokuapp.com/api/books/${id}`);
       // Remove the deleted book from the local bookData context
       setBookData((prevData) => prevData.filter((book) => book._id !== id));
     } catch (error) {
@@ -69,7 +62,7 @@ const ListPage = () => {
     setBookData(sortedBooks);
   };
   const handleLoadMore = () => {
-    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + loadMoreBooks);
+    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 5);
   };
   return (
     <>
@@ -137,26 +130,28 @@ const ListPage = () => {
                <BookmarkContainer>
                 {favorites.includes(book._id) ? (
                   <Button
-                    variant="outlined"
+                  className={`small-button ${isMobile ? 'small-button-mobile' : ''}`}
+                  variant="outlined"
                     color="secondary"
                     onClick={(e) => {
                       e.stopPropagation(); // Prevent item click event
                       removeFromFavorites(book._id); // Remove from favorites
                     }}
-                    style={{ width: '100px' }} // Set a fixed width
+                    style={{ width: '50px' }} // Set a fixed width
                   >
                     {/* Remove from Favorites */}
                     <BookmarkIcon></BookmarkIcon>
                   </Button>
                 ) : (
                   <Button
-                    variant="outlined"
+                  className={`small-button ${isMobile ? 'small-button-mobile' : ''}`}
+                  variant="outlined"
                     color="primary"
                     onClick={(e) => {
                       e.stopPropagation(); // Prevent item click event
                       addToFavorites(book._id); // Add to favorites
                     }}
-                    style={{ width: '100px' }} // Set a fixed width
+                    style={{ width: '50px' }} // Set a fixed width
                   >
                      <BookmarkBorderIcon></BookmarkBorderIcon>
                           {/* Add to Favorites */}
@@ -168,7 +163,11 @@ const ListPage = () => {
                   {/* Book rating */}
                   <RatingContainer>
                     <p style={{ margin: 0, paddingRight: '5px' }}>Rating</p>
-                    <Rating name="rating" defaultValue={2.5} />
+                    <Rating
+                          name="rating"
+                          defaultValue={1.5}
+                          size={isMobile ? 'small' : 'medium'} // Set the size based on the isMobile variable
+                        />
                     </RatingContainer>
                   </StyledBookListItem>
                 </div>
