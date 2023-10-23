@@ -1,6 +1,6 @@
 import React, { useContext, useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, Alert, AlertTitle, Button,Rating} from '@mui/material';
+import { Paper, Alert, AlertTitle, Button,Rating,Grid} from '@mui/material';
 import { BookFinderContext } from '../context';
 import { useMediaQuery} from '@mui/material';
 
@@ -76,6 +76,8 @@ const ListPage = () => {
         <Button variant="contained" color="primary" onClick={handleSortClick} style={{ marginLeft: 'auto' , marginTop: '16px'}} >
           Sort by Title ({sortOrder === 'asc' ? 'A-Z'||'a-z' : 'Z-A'||'z-a'})
         </Button>
+        <Grid container spacing={2}>
+          <Grid item>
         <Paper elevation={3} sx={{ p: 2, marginTop: 2 }}>
           {isLoading && (
             <>
@@ -185,6 +187,8 @@ const ListPage = () => {
             </Typography>
           )}
            </Paper>
+           </Grid>
+           </Grid>
                 <Button component={Link} to={`/detail`} variant="contained" color="primary" mt={2} 
                         style={{marginTop: '16px',alignContent:"center",padding:"16px"}} >
                             Create New Book
