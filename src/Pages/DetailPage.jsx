@@ -15,6 +15,7 @@ function DetailPage() {
         // Render component for creating a new book
         <AddBook />
       )}
+
     </>
   );
 }

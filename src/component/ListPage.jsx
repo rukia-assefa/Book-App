@@ -99,11 +99,10 @@ const ListPage = () => {
               {bookData.slice(0, visibleBooks).map((book) => (
 
                 <div key={book._id}>
-                  <StyledBookListItem
-                    elevation="4"
-                    // onClick={() => handleEditClick(book._id)}
-                  >
-                    <StyledImage src={book.imageUrl} alt="" />
+                  <StyledBookListItem elevation="4" >
+                  <Link to={`/detail-book/${book._id}`}>
+                        <StyledImage src={book.imageUrl} alt="" />
+                   </Link>
                     <StyledContent>
                       <h4>Author: {book.author}</h4>
                       <p>Title: {book.title}</p>

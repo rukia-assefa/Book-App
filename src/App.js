@@ -9,7 +9,7 @@ import DrawerAppBar from './Nav/Nav';
 import { CssBaseline, Container} from '@mui/material';
 import Signup from './component/Signup';
 import FavoritesPage from './Pages/FavoritesPage';
-
+import DetailBook from './Pages/DetailBook'
 
 function App() {
 
@@ -45,6 +45,12 @@ function App() {
                     <DetailPage />
                   </PrivateRoute>
                 } />
+                <Route path="/detail-book/:id" element={
+                  <PrivateRoute>
+                      <DetailBook />
+                  </PrivateRoute>
+                } />
+                
               <Route path="/favorites" element={
                 <PrivateRoute>
                   <FavoritesPage/>
