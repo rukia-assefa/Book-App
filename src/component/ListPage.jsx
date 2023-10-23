@@ -1,6 +1,6 @@
 import React, { useContext, useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, Alert, AlertTitle, Button,Rating,Grid} from '@mui/material';
+import { Paper, Alert, AlertTitle, Button,Rating,Grid,Container} from '@mui/material';
 import { BookFinderContext } from '../context';
 import { useMediaQuery} from '@mui/material';
 
@@ -11,7 +11,7 @@ import {
 import SearchBar from '../SearchBar/SearchBar';
 import axios from 'axios'; 
 import {
-  StyledBookListItem, StyledSkeleton,StyledImage, StyledContent, StyledDelete,StyledEdit,RatingContainer,Container,BookmarkContainer,
+  StyledBookListItem, StyledSkeleton,StyledImage, StyledContent, StyledDelete,StyledEdit,RatingContainer,BookmarkContainer,
 } from './Styled/StyledComponet';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';

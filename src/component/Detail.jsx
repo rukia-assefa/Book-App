@@ -44,7 +44,7 @@ const Detail = () => {
           <Typography variant="body1" sx={{ marginBottom: 1 }}>
             Publishers: {book.publishers}
           </Typography>
-          <img src={book.imageUrl} alt={book.title} style={{ maxWidth: '100%' }} />
+          <img src={book.imageUrl} alt={book.title} style={{ maxWidth: '50%',maxHeight:'50%' }} />
           <Typography variant="body2" sx={{ marginTop: 2 }}>
             Description: {book.description}
           </Typography>

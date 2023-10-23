@@ -151,20 +151,7 @@ margin-top: 8px;
 
 }
 `;
-export const Container = styled.div`
-  font-size: 16px;
-  margin: 20px;
 
-  @media (max-width: 768px) {
-    font-size: 14px;
-    margin: 10px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 10px;
-    margin: 5px;
-  }
-`;
 
 
 
